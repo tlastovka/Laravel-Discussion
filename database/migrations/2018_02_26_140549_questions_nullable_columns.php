@@ -14,7 +14,8 @@ class QuestionsNullableColumns extends Migration
     public function up()
     {
         Schema::table('questions', function (Blueprint $table) {
-            $table->string('title')->nullable(false)->change();//makes column nullable
+            $table->string('title')->nullable()->change();
+            $table->text('text')->nullable()->change();//makes column nullable
         });
     }
 
@@ -26,7 +27,8 @@ class QuestionsNullableColumns extends Migration
     public function down()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //
+            $table->string('title')->nullable(false)->change();
+            $table->text('text')->nullable(false)->change();
         });
     }
 }
