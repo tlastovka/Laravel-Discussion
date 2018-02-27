@@ -14,7 +14,7 @@
 
     <!-- STYLESHEET -->
 
-    <title>Page title</title>
+    <title>Questions</title>
 
 </head>
 

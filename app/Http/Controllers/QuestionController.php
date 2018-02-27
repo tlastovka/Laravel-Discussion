@@ -20,6 +20,10 @@ class QuestionController extends Controller
 
     public function show($id) {
         $questions = DB::table('questions')->find($id);
+        $questions = DB::table('questions')->where('id',$id)->first();
+        $questions = DB::table('questions')->where('id','=$',$id)->first();
+        $questions = \App\Question:: find($id);
+
         $view = view('questions/show') ;
         $view->questions = $questions;
         return $view;
