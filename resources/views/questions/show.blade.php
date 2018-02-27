@@ -29,8 +29,8 @@
 
         </div>
         <div class="question-right">
-            <h2>{{$questions->title}}</h2>
-            <p>{{$questions->text}}</p>
+            <h2>{{$question->title}}</h2>
+            <p>{{$question->text}}</p>
 
         </div>
     </div>

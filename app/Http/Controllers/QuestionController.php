@@ -16,17 +16,46 @@ class QuestionController extends Controller
         // dd($questions);//dump and die $questions
 
         return $view;
+
+    }
+    public function create()
+    {
+        $view = view('questions/create');
+
+        return $view;
+    }
+
+    public function store(Request $request)
+    {
+     $this->validate ( $request, [
+         'title'=>'required',
+        'text'=>'required',
+     ]);
+
+    //  Question::create(request(['title','text']));
+
+     $question = new \App\Question();
+     $question->user_id=0;
+     $question->title=$request->get('title');
+     $question->text=$request->get('text');
+     $question->save();
+
+
+     return redirect('/questions');
+
     }
 
     public function show($id) {
         $questions = DB::table('questions')->find($id);
         $questions = DB::table('questions')->where('id',$id)->first();
-        $questions = DB::table('questions')->where('id','=$',$id)->first();
-        $questions = \App\Question:: find($id);
+        $questions = DB::table('questions')->where('id','=',$id)->first();
+        $question = \App\Question:: find($id);
 
         $view = view('questions/show') ;
-        $view->questions = $questions;
+        $view->question = $question;
         return $view;
 
     }
+
+
 }
