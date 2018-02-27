@@ -41,7 +41,7 @@ class QuestionController extends Controller
      $question->save();
 
 
-     return redirect('/questions');
+     return redirect('/questions/' . $question->id);
 
     }
 
