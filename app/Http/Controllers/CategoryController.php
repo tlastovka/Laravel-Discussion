@@ -7,18 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    public function index()
-    {
-        // select all rows from table categories
-$categories = DB::table('categories')->get();
+    public function index(){
+        $categories = DB::table('categories')->get();//select all rows from the table 'categories'
 
-// prepare the view
-$view = view('categories/index');
+        $view = view('categories/index'); //prepare the view
 
-// insert the selected categories into the view
-$view->categories = $categories;
+        $view->categories = $categories; //insert the selected categories into the view
 
-// return the view
-return $view;
+        return $view; //return the view
     }
+
+
 }
