@@ -29,13 +29,9 @@
 
         </div>
         <div class="question-right">
-            <h2>How can I connect to MySQL in Python 3 on Windows?</h2>
-            <p>I am using ActiveState Python 3 on Windows and wanted to connect to my MySQL database. I heard that
-                mysqldb was
-                the module to use. I can't find mysqldb for Python 3.</p>
-            <p>Is there a repository available where the binaries exist for mysqldb? How can I connect to MySQL in
-                Python 3 on
-                Windows?</p>
+            <h2>{{$questions->title}}</h2>
+            <p>{{$questions->text}}</p>
+
         </div>
     </div>
 </section>
