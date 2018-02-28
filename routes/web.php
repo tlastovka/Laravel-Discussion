@@ -26,3 +26,7 @@ Route::get('/questions/{id}', 'QuestionController@show')->name('show_question');
 
 Route::get('/categories', 'CategoryController@index');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
