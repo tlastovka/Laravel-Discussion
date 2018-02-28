@@ -39,7 +39,10 @@
 <section id="answers">
 
     <div class="container">
-        <h2>12 Answers</h2>
+
+        <h2>{{ count($question->answers)}} Answers</h2>
+
+        @foreach($question->answers as $answer)
         <div class="answer">
             <div class="answer-left">
                 <div class="user-avatar">
@@ -59,11 +62,46 @@
                 </div>
             </div>
             <div class="answer-right">
-                <p>I also tried using pymysql (on my Win7 x64 machine, Python 3.3), without too much luck. I downloaded
-                    the .tar.gz, extract, ran "setup.py install", and everything seemed fine. Until I tried connecting
-                    to a database, and got "KeyError [56]". An error which I was unable to find documented anywhere.</p>
+                <p>{{$answer->text}}</p>
             </div>
+
         </div>
+        @endforeach
+
+        <hr>
+
+        <div class="card-block">
+            <h3>Answer this question</h3>
+            @if(count($errors))
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+        </div>
+
+        {!! Form:: open(['action'=>'AnswerController@store'])!!}
+        {{Form::hidden('question_id', $question->id)}}
+        <div class="form-row">
+            <label>Text:
+                {!!Form::text('text')!!}
+            </label>
+        </div>
+
+
+        <div class="form-row">
+            <label>
+                {!!Form::submit('place an answer')!!}
+            </label>
+
+        </div>
+
+        {!!Form::close()!!}
+
 
     </div>
 

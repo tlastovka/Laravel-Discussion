@@ -13,13 +13,13 @@
 
         {!! Form:: open(['action'=>'QuestionController@store'])!!}
 
-        <div class="form-row">
-        <label>Title:
-        {!!Form::text('title')!!}
-        </label>
-        </div>
+            <div class="form-row">
+                <label>Title:
+                    {!!Form::text('title')!!}
+                </label>
+            </div>
 
-        <div class="form-row">
+            <div class="form-row">
         <label>Your question:
         {!!Form::text('text')!!}
         </label>

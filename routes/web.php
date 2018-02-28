@@ -30,3 +30,5 @@ Route::get('/categories', 'CategoryController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/answers/store', 'AnswerController@store');

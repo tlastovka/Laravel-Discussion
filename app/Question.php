@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    public function question()
+    public function answers()
     {
-        return $this->hasMany('App\Answer', 'question_id');
+        return $this->hasMany('App\Answers', 'question_id');
 
     }
 
