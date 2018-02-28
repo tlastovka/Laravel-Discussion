@@ -35,7 +35,8 @@ class QuestionController extends Controller
     //  Question::create(request(['title','text']));
 
      $question = new \App\Question();
-     $question->user_id=0;
+     $question->user_id = \Auth::id();
+    //  $question->user_id=0;
      $question->title=$request->get('title');
      $question->text=$request->get('text');
      $question->save();
@@ -46,6 +47,7 @@ class QuestionController extends Controller
     }
 
     public function show($id) {
+
         $questions = DB::table('questions')->find($id);
         $questions = DB::table('questions')->where('id',$id)->first();
         $questions = DB::table('questions')->where('id','=',$id)->first();
